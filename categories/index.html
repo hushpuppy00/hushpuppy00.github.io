@@ -97,12 +97,6 @@ var _hmt = _hmt || [];
 			</a>
 		  </li>
 		  
-		  <li>
-			<a href="/atom.xml" title="Subscribe me.">
-			  <i class=""></i>RSS
-			</a>
-		  </li>
-		  
 		</ul>
       </div>
     </div> <!-- container -->
@@ -189,6 +183,15 @@ var _hmt = _hmt || [];
 </script>
 
 
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
 
 </body>
    </html>
