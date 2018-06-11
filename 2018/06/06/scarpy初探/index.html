@@ -6,13 +6,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Hushpuppy&#39;s Blog (๑•̀ㅂ•́)و✧</title>
+  <title>scarpy初探 | Hushpuppy&#39;s Blog (๑•̀ㅂ•́)و✧</title>
   <meta name="author" content="John Doe">
+  
+  <meta name="description" content="scrapy项目简单尝试-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="scarpy初探"/>
   <meta property="og:site_name" content="Hushpuppy&#39;s Blog (๑•̀ㅂ•́)و✧"/>
 
   
@@ -105,46 +107,33 @@ var _hmt = _hmt || [];
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header logo">
-  <h1>Hushpuppy&#39;s Blog (๑•̀ㅂ•́)و✧<span class="blink-fast">∎</span></h1>
-</div>
+    	 
 
-<div class="row page">
 
 	
+		<div class="page-header">
+			<h1> scarpy初探</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
 	<div class="col-md-9">
 	
 
-		<div class="slogan">
-      <i class="fa fa-heart blink-slow"></i>
-      What are you waiting for!
-</div>    
-		<div id="top_search"></div>
-		<div class="mypage">
-		
-		<!-- title and entry -->
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2018/06/06/scarpy初探/" title="scrapy项目简单尝试-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;">scarpy初探</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2018-06-06  </div>
-		</div>
-	</div>
-	
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> scrapy项目简单尝试-----> <a href="" onclick="alert('o(￣ヘ￣o#)都说了让你不要点')">请不要点击此处</a>
+		 </div> <!-- alert -->
+	  		
 
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="scrapy-使用初探"><a href="#scrapy-使用初探" class="headerlink" title="scrapy 使用初探"></a>scrapy 使用初探</h1><h2 id="what-is-scrapy？"><a href="#what-is-scrapy？" class="headerlink" title="what is scrapy？"></a>what is scrapy？</h2><p>【摘自scrapy中文文档】Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。<br>其最初是为了 页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。<br>当然，常用的python爬虫框架还有狠毒，比如pyspider，它会提供一个机遇浏览器的编辑页面，适于快速创建爬虫，但是好像是主要使用与linux（mac的），有兴趣的可以自己去查下相关的资料。</p>
+	  <h1 id="scrapy-使用初探"><a href="#scrapy-使用初探" class="headerlink" title="scrapy 使用初探"></a>scrapy 使用初探</h1><h2 id="what-is-scrapy？"><a href="#what-is-scrapy？" class="headerlink" title="what is scrapy？"></a>what is scrapy？</h2><p>【摘自scrapy中文文档】Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。<br>其最初是为了 页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。<br>当然，常用的python爬虫框架还有狠毒，比如pyspider，它会提供一个机遇浏览器的编辑页面，适于快速创建爬虫，但是好像是主要使用与linux（mac的），有兴趣的可以自己去查下相关的资料。</p>
 <p>##目标<br>这篇blog主要是为了大致记录一下基础的scrapy的流程和部分记录下一些有用的小知识点，所以整体不会太过详细，偏流程便于自己看。<br>功能很简答，通过excel提供的cve编号爬取参考链接，参考链接的来源的这里采用cve的，当然也可以是NVD，但是最近好像NVD的网站不是很稳定，所以未采用，整体功能还是比较简单的（对我就是这么菜,请不要嘲笑我的代码✧(≖ ◡ ≖✿)嘿嘿）。</p>
 <h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><pre><code>- 创建爬虫
 - 编写spider
@@ -170,142 +159,94 @@ var _hmt = _hmt || [];
 <h2 id="输出结果（包括参数设置）"><a href="#输出结果（包括参数设置）" class="headerlink" title="输出结果（包括参数设置）"></a>输出结果（包括参数设置）</h2><p>首先有几个参数需要设置好<br>items.py需要设置需要的要输出的变量，本文中设置为<code>url = scrapy.Field()</code><br>另外还有一个问题，就是scrapy是异步多线程的，会导致一个结果，就是结果输出的顺序和start_url的顺序不一致，其实可以有多种方式处理，这里因为没有时间限制，所以我采用了最简单的方法，改并发设为<code>CONCURRENT_REQUESTS = 1</code>，这种方法比较简单代码量也相对较少但是时间会较长,当然解决方式还有别的办法，比如可以输出两个结果，cve编号和参考链接量列内容，虽然顺序可能回稍微变动，但是速度会快很多。<br>结果输出这块，需要修改piplines.py，scrapy输出的方式有很多种，也可以通过命令导出为csv文件，这里由于只要一列输出，可以直接导出到txt上，最方便。</p>
 <figure class="highlight plain"><figcaption><span>process_item(self, item, spider):</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 以追加的方式打开文件，不存在则创建</span><br><span class="line"># 因为item中的数据是unicode编码，为了在控制台中查看数据的有效性和保存，</span><br><span class="line"># 将其编码改为utf-8</span><br><span class="line">with open(&apos;res.txt&apos;, &apos;a&apos;) as f:</span><br><span class="line">    f.write(item[&apos;url&apos;] + &apos;\n&apos;)</span><br><span class="line">return item</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇blog写的比较简单，更注重流程一些，还有几个基础的点，时间比较有限，所以没有写的很详细，主要便于自己温习用的，代码我传到了github，代码非常基础，可以当做一个简单的入门了解，项目链接<a href="https://github.com/hushpuppy00/cve" target="_blank" rel="noopener">https://github.com/hushpuppy00/cve</a></p>
-
-	
-	</div>
-  <a type="button" href="/2018/06/06/scarpy初探/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2018/05/21/hello-world/" >Hello World</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2018-05-21  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-	
-	</div>
-  <a type="button" href="/2018/05/21/hello-world/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
-
-   
-</div>
-
-  		</center>
-		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
-	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
-
-
-		
-			
-	<div class="widget">
-		<h4>Categories</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/python-scrapy/">python-scrapy<span>1</span></a></li>
-		
-		</ul>
+	  
 	</div>
 
-		
-			
-	<div class="widget">
-		<h4>Tag Cloud</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/python-scrapy/">-python -scrapy<span>0</span></a></li>
-		
-			<li><a href="/tags/python-scrapy/">python scrapy<span>1</span></a></li>
-		
-		 
-		</ul>
-	</div>
+	<div>
+  	<center>
+	<div class="pagination">
 
-
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
     
-      <li>
-        <a href="/2018/06/06/scarpy初探/"  title="scrapy项目简单尝试-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;" ><i class="fa fa-file-o"></i>scarpy初探</a>
-      </li>
     
-      <li>
-        <a href="/2018/05/21/hello-world/" ><i class="fa fa-file-o"></i>Hello World</a>
-      </li>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
     
-  </ul>
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/05/21/hello-world/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
 </div>
 
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
 		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/hushpuppy00" title="My Github account." target="_blank"]);">My Github</a></li>
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
 	
-	</ul>
-</div>
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-06-06 
+	</div>
+	
 
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/python-scrapy/">python-scrapy<span>1</span></a></li>
+  </li>
 
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/python-scrapy/">python scrapy<span>1</span></a></li>
+    </ul>
+	</div>
 		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
 
+	<!-- toc -->
+	<div class="meta-widget">
 	
+	</div>
 	
-</div> <!-- row-fluid -->
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
 	</div>
   </div>
   <div class="container-narrow">
