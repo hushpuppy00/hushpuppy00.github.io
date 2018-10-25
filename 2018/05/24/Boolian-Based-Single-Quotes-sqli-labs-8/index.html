@@ -6,13 +6,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Archives: 2018/6 | Hushpuppy&#39;s Blog (๑•̀ㅂ•́)و✧</title>
+  <title>Boolian Based - Single Quotes [sqli-labs-8] | Hushpuppy&#39;s Blog (๑•̀ㅂ•́)و✧</title>
   <meta name="author" content="John Doe">
+  
+  <meta name="description" content="About SQL inject boolian based - Single Quotes[the mission 8 of sqli-labs ]">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Boolian Based - Single Quotes [sqli-labs-8]"/>
   <meta property="og:site_name" content="Hushpuppy&#39;s Blog (๑•̀ㅂ•́)و✧"/>
 
   
@@ -107,137 +109,130 @@ var _hmt = _hmt || [];
   	<div class="content">
     	 
 
-<!-- title -->
-<div class="page-header">
-  <h1 class="archive-title"><i class="fa fa-archive"></i> 2018/6</h1>
-</div>
 
-<div class="row page">
-  <!-- cols -->
-  
-  <div class="col-md-9">
 	
-
-	  <div id="top_search"></div>
-
-	  <div class="archive">
-		
-		
-		
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2018">2018<b class="caret"></b></h4>
-			<ul id="2018" class="collapse in">
-			
-		
-		<li class="listing-item">
-		<span class="date_class"> 2018-10-25 </span> &raquo;
-		
-		   <span class="title"><a href="/2018/10/25/sqlinject-part1/"  title="sql注入部分总结-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;" >SQL注入部分总结(一)</a></span>
-		
-		</li>			
-		
-		
-		
-		<li class="listing-item">
-		<span class="date_class"> 2018-06-06 </span> &raquo;
-		
-		   <span class="title"><a href="/2018/06/06/scarpy初探/"  title="scrapy项目简单尝试-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;" >scarpy初探</a></span>
-		
-		</li>			
-		
-		
-		
-		<li class="listing-item">
-		<span class="date_class"> 2018-05-21 </span> &raquo;
-		
-		   <span class="title"><a href="/2018/05/21/hello-world/" >Hello World</a></span>
-		
-		</li>			
-		
-		</ul>
+		<div class="page-header">
+			<h1> Boolian Based - Single Quotes [sqli-labs-8]</h1>
 		</div>
-
-</div> <!-- col-md-9/col-md-12 -->
-
-
-<div class="col-md-3">
-	<div id="sidebar">
 	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
 
 
-		
-			
-	<div class="widget">
-		<h4>Categories</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/python-scrapy/">python-scrapy<span>1</span></a></li>
-		
-			<li><a href="/categories/sqlinject/">sqlinject<span>1</span></a></li>
-		
-		</ul>
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> About SQL inject boolian based - Single Quotes[the mission 8 of sqli-labs ]
+		 </div> <!-- alert -->
+	  		
+
+	  <p>#Boolian Based - Single Quotes [sqli-labs-8]</p>
+<p>##Basic knowledge</p>
+<ul>
+<li><code>length(str)</code>：返回str字符串的长度。</li>
+<li><code>substr(str, pos, len)</code>：将str从pos位置开始截取len长度的字符进行返回.<code>这里的pos是从1开始的</code> ,<code>mid(str,pos,len)</code>功能一样</li>
+<li><code>ascii(str)</code>：返回字符串str的最左面字符的ASCII代码值,同<code>ord(str)</code></li>
+<li><code>if(a,b,c)</code>:a为条件，a为true，返回b，否则返回c。</li>
+<li><code>length()</code>函数用于判断返回的长度。</li>
+<li><code>COUNT()</code> 函数返回匹配指定条件的行数。</li>
+<li>这里说是盲注，是因为也没不会有报错等的信息回显，只是有结果和无结果返回的页面显示不一样（此例中），或者可以利用<code>sleep()</code>通过延时判断是否正确。</li>
+</ul>
+<hr>
+<p>举个简单的应用实例：<br>    判断盲注猜解数据库名：<a href="http://localhost/sqli-labs/Less-8/?id=1&#39;" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-8/?id=1&#39;</a> and ascii(substr((select database()),1,1))&gt;64 %23<br>    可以通过修改条件猜解字符的ASCII值，然后获取结果<br>    <code>由于盲注猜解比较费劲，所以建议用sqlmap、burpsuite、或者自己写脚本工具处理</code></p>
+<hr>
+	  
 	</div>
 
-		
-			
-	<div class="widget">
-		<h4>Tag Cloud</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/python-scrapy/">python scrapy<span>1</span></a></li>
-		
-			<li><a href="/tags/security-sql/">security sql<span>1</span></a></li>
-		
-		 
-		</ul>
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2018/06/06/scarpy初探/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/05/21/hello-world/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
 	</div>
-
-
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/2018/10/25/sqlinject-part1/"  title="sql注入部分总结-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;" ><i class="fa fa-file-o"></i>SQL注入部分总结(一)</a>
-      </li>
-    
-      <li>
-        <a href="/2018/06/06/scarpy初探/"  title="scrapy项目简单尝试-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;" ><i class="fa fa-file-o"></i>scarpy初探</a>
-      </li>
-    
-      <li>
-        <a href="/2018/05/21/hello-world/" ><i class="fa fa-file-o"></i>Hello World</a>
-      </li>
-    
-  </ul>
-</div>
-
-		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/hushpuppy00" title="My Github account." target="_blank"]);">My Github</a></li>
+	<!-- comment -->
 	
-	</ul>
-</div>
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
 
 
+	</div> <!-- col-md-9/col-md-12 -->
 		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
 
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-05-24 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/security-SQL/">security-SQL<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/SQL-Security/">-SQL -Security<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
 
 
 
